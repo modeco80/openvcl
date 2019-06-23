@@ -13,6 +13,10 @@
 
 #include <string>
 
+// NOTE(modeco80): min is in <algorithm>
+// <string> (by proxy <xstring>) do not include it
+#include <algorithm>
+
 namespace vcl
 {
 

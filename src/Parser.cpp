@@ -9,6 +9,7 @@
  */
 
 #include "Parser.h"
+#include "Version.h"
 #include "Error.h"
 
 #include <iostream>
@@ -827,9 +828,7 @@ bool Parser::writeOutputStream( std::ostream& stream )
 
 bool Parser::showVersion()
 {
-	// TODO: can we automate updates of this somehow
-	std::cout << "OpenVCL Version 0.3.3" << std::endl;
-
+	std::cout << "OpenVCL Version " << version::to_string() << std::endl;
 	return false;
 }
 

@@ -9,6 +9,7 @@
  */
 
 #include "stlhelp.h"
+#include <cmath>
 
 namespace vcl
 {

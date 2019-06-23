@@ -37,7 +37,8 @@ CommandLine::CommandLine()
 	m_timeout	= 4;
 	m_showVersion = false;
 
-	m_gasp = "gasp";
+	// typing is hard ok
+	m_gasp = "masp";
 	m_cpp = "cpp";
 
 	// setup arguments

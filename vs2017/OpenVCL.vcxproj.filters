@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\Alias.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\BranchState.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\CodeGenerator.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\CommandLine.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Dependency.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Error.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Expression.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Math.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Parser.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\RegisterAllocator.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\stlhelp.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Token.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Tokenizer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\Alias.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\BranchState.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\CodeGenerator.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\CommandLine.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Dependency.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Error.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Expression.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\File.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Line.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Math.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Operand.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Parser.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Register.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\RegisterAllocator.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\stlhelp.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Token.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Tokenizer.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Version.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\src\Alias.inl">
+      <Filter>src</Filter>
+    </None>
+    <None Include="..\src\BranchState.inl">
+      <Filter>src</Filter>
+    </None>
+    <None Include="..\src\CodeGenerator.inl">
+      <Filter>src</Filter>
+    </None>
+    <None Include="..\src\CommandLine.inl">
+      <Filter>src</Filter>
+    </None>
+    <None Include="..\src\Dependency.inl">
+      <Filter>src</Filter>
+    </None>
+    <None Include="..\src\Expression.inl">
+      <Filter>src</Filter>
+    </None>
+    <None Include="..\src\File.inl">
+      <Filter>src</Filter>
+    </None>
+    <None Include="..\src\Line.inl">
+      <Filter>src</Filter>
+    </None>
+    <None Include="..\src\Operand.inl">
+      <Filter>src</Filter>
+    </None>
+    <None Include="..\src\Register.inl">
+      <Filter>src</Filter>
+    </None>
+    <None Include="..\src\RegisterAllocator.inl">
+      <Filter>src</Filter>
+    </None>
+    <None Include="..\src\Token.inl">
+      <Filter>src</Filter>
+    </None>
+    <None Include="..\src\Tokenizer.inl">
+      <Filter>src</Filter>
+    </None>
+  </ItemGroup>
+</Project>
