@@ -37,14 +37,12 @@ examples:
 	$(MAKE) -C examples all
 
 clean:
-	$(MAKE) -C examples clean
-	-rm -f $(TARGET) $(OBJECTS)
+	-$(MAKE) -C examples clean
+	-rm -rf $(TARGET) $(OBJDIR)/
 
 distclean: clean
 	-$(MAKE) -C examples clean
 	-$(MAKE) -C contrib/masp distclean
-	-rm -f $(DEPENDFILE) src/*~ *~
-	-rmdir $(OBJDIR)
 
 package: distclean
 	rm -rf "$(TMP)/$(PACKAGE)"
