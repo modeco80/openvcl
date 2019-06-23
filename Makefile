@@ -2,7 +2,7 @@ TARGET=openvcl
 
 SRCDIR=src
 OBJDIR=obj
-DEPENDFILE=.depend
+DEPENDFILE=obj/depend
 TMP=/tmp
 PACKAGE=openvcl$(VCLVERSION)
 
@@ -10,7 +10,7 @@ SOURCES=$(wildcard $(SRCDIR)/*.cpp)
 HEADERS=$(wildcard $(SRCDIR)/*.h)
 OBJECTS=$(subst $(SRCDIR)/,$(OBJDIR)/,$(patsubst %.cpp,%.o,$(SOURCES)))
 
-CXXFLAGS:=$(CXXFLAGS) -ansi -pedantic -Wall -Werror -g
+CXXFLAGS:=$(CXXFLAGS) -std=c++11 -pedantic -Wall -Werror -g
 LDFLAGS:=$(LDFLAGS) -g
 
 .PHONY: all examples clean distclean package install
@@ -28,7 +28,7 @@ $(warning Installation root is set to $(PREFIX).)
 endif
 endif
 
-all:	$(OBJDIR) $(TARGET) examples
+all:	$(OBJDIR) $(DEPENDFILE) $(TARGET) examples
 
 $(TARGET): $(OBJDIR) $(OBJECTS)
 	$(CXX) $(LDFLAGS) -o $(TARGET) $(OBJECTS)
@@ -57,7 +57,7 @@ package: distclean
 install: $(OBJDIR) $(TARGET)
 	-install -d $(PREFIX)/bin/
 	install -s $(TARGET) $(PREFIX)/bin/
- 
+
 # compile c file
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
