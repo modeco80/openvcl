@@ -25,7 +25,7 @@ Boston, MA 02111-1307, USA.  */
 #ifdef ANSI_PROTOTYPES
 #include <stdarg.h>
 #else
-#include <varargs.h>
+#include <stdarg.h>
 #endif
 #include <stdio.h>
 #ifdef HAVE_STRING_H

@@ -24,7 +24,8 @@ Foundation, 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.  */
 #ifdef ANSI_PROTOTYPES
 #include <stdarg.h>
 #else
-#include <varargs.h>
+// hackfix
+#include <stdarg.h>
 #endif
 #ifdef HAVE_STRING_H
 #include <string.h>

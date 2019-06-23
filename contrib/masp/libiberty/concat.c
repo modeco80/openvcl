@@ -54,7 +54,7 @@ NOTES
 #ifdef ANSI_PROTOTYPES
 #include <stdarg.h>
 #else
-#include <varargs.h>
+#include <stdarg.h>
 #endif
 
 # if HAVE_STRING_H

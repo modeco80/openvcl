@@ -1,43 +1,50 @@
 /* <ctype.h> replacement macros.
-
-   Copyright (C) 2000, 2001 Free Software Foundation, Inc.
+   Copyright (C) 2000-2019 Free Software Foundation, Inc.
    Contributed by Zack Weinberg <zackw@stanford.edu>.
-
-   This file is part of the libiberty library.  Libiberty is free
-   software; you can redistribute it and/or modify it under the terms
-   of the GNU Library General Public License as published by the Free
-   Software Foundation; either version 2 of the License, or (at your
-   option) any later version.
-
-   Libiberty is distributed in the hope that it will be useful, but
-   WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-   Library General Public License for more details.
-
-   You should have received a copy of the GNU Library General Public
-   License along with libiberty; see the file COPYING.LIB.  If not,
-   write to the Free Software Foundation, Inc., 59 Temple Place -
-   Suite 330, Boston, MA 02111-1307, USA.  */
+This file is part of the libiberty library.
+Libiberty is free software; you can redistribute it and/or
+modify it under the terms of the GNU Library General Public
+License as published by the Free Software Foundation; either
+version 2 of the License, or (at your option) any later version.
+Libiberty is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Library General Public License for more details.
+You should have received a copy of the GNU Library General Public
+License along with libiberty; see the file COPYING.LIB.  If
+not, write to the Free Software Foundation, Inc., 51 Franklin Street - Fifth Floor,
+Boston, MA 02110-1301, USA.  */
 
 /* This is a compatible replacement of the standard C library's <ctype.h>
    with the following properties:
-
    - Implements all isxxx() macros required by C99.
    - Also implements some character classes useful when
      parsing C-like languages.
    - Does not change behavior depending on the current locale.
    - Behaves properly for all values in the range of a signed or
      unsigned char.
-
    To avoid conflicts, this header defines the isxxx functions in upper
    case, e.g. ISALPHA not isalpha.  */
 
 #ifndef SAFE_CTYPE_H
 #define SAFE_CTYPE_H
 
-#ifdef isalpha
- #error "safe-ctype.h and ctype.h may not be used simultaneously"
+/* Determine host character set.  */
+#define HOST_CHARSET_UNKNOWN 0
+#define HOST_CHARSET_ASCII   1
+#define HOST_CHARSET_EBCDIC  2
+
+#if  '\n' == 0x0A && ' ' == 0x20 && '0' == 0x30 \
+   && 'A' == 0x41 && 'a' == 0x61 && '!' == 0x21
+#  define HOST_CHARSET HOST_CHARSET_ASCII
 #else
+# if '\n' == 0x15 && ' ' == 0x40 && '0' == 0xF0 \
+   && 'A' == 0xC1 && 'a' == 0x81 && '!' == 0x5A
+#  define HOST_CHARSET HOST_CHARSET_EBCDIC
+# else
+#  define HOST_CHARSET HOST_CHARSET_UNKNOWN
+# endif
+#endif
 
 /* Categories.  */
 
@@ -99,5 +106,39 @@ extern const unsigned char  _sch_tolower[256];
 #define TOUPPER(c) _sch_toupper[(c) & 0xff]
 #define TOLOWER(c) _sch_tolower[(c) & 0xff]
 
-#endif /* no ctype.h */
+/* Prevent the users of safe-ctype.h from accidently using the routines
+   from ctype.h.  Initially, the approach was to produce an error when
+   detecting that ctype.h has been included.  But this was causing
+   trouble as ctype.h might get indirectly included as a result of
+   including another system header (for instance gnulib's stdint.h).
+   So we include ctype.h here and then immediately redefine its macros.  */
+
+#include <ctype.h>
+#undef isalpha
+#define isalpha(c) do_not_use_isalpha_with_safe_ctype
+#undef isalnum
+#define isalnum(c) do_not_use_isalnum_with_safe_ctype
+#undef iscntrl
+#define iscntrl(c) do_not_use_iscntrl_with_safe_ctype
+#undef isdigit
+#define isdigit(c) do_not_use_isdigit_with_safe_ctype
+#undef isgraph
+#define isgraph(c) do_not_use_isgraph_with_safe_ctype
+#undef islower
+#define islower(c) do_not_use_islower_with_safe_ctype
+#undef isprint
+#define isprint(c) do_not_use_isprint_with_safe_ctype
+#undef ispunct
+#define ispunct(c) do_not_use_ispunct_with_safe_ctype
+#undef isspace
+#define isspace(c) do_not_use_isspace_with_safe_ctype
+#undef isupper
+#define isupper(c) do_not_use_isupper_with_safe_ctype
+#undef isxdigit
+#define isxdigit(c) do_not_use_isxdigit_with_safe_ctype
+#undef toupper
+#define toupper(c) do_not_use_toupper_with_safe_ctype
+#undef tolower
+#define tolower(c) do_not_use_tolower_with_safe_ctype
+
 #endif /* SAFE_CTYPE_H */

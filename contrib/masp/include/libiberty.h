@@ -41,12 +41,10 @@ extern "C" {
 
 #include "ansidecl.h"
 
-#ifdef ANSI_PROTOTYPES
 /* Get a definition for size_t.  */
 #include <stddef.h>
 /* Get a definition for va_list.  */
 #include <stdarg.h>
-#endif
 
 /* Build an argument vector from a string.  Allocates memory using
    malloc.  Use freeargv to free the vector.  */
